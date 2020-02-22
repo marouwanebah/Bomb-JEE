@@ -12,27 +12,27 @@
  <link type="text/css" rel="stylesheet" href="asset/css/style.css" />
   <link rel="stylesheet" href="asset/css/bootstrap.min.css">
 </head>
-<body>
+<body style="background-image: url(asset/images/bomberman.png);   background-repeat: no-repeat;
+  background-attachment: fixed;    " >
 
 	<c:import url="StaticFile/tetePage.jsp"></c:import>
-
-
-	
-
-	<div class="center">
+	<c:if test="${ !empty user }">
+		<c:out value=" username = ${user.email } passwords = ${user.motDePasse }"></c:out>
+	</c:if>
+	<div class="text-center">
     	<form method="post"   >
         	<fieldset>
-        	<legend class="border border-primary bg-primary">Connection </legend>
+        	
             	<label for="peusoUser">Nom d'utilisateur </label>
                 <br />
-                <input type="text" id="nomClient" name="nomClient" value="" size="20" maxlength="20" />
+                <input type="text" id="nomClient" name="nomClient" value="" size="23" maxlength="20" required placeholder="Nom d'utilisateur ou email"/>
          		<br />
              	<label for="motDePass">Mot de passe </label>
        			<br />
-       			<input  type="password" id="motDePass" name="motDePass"  />
+       			<input  type="password" id="motDePass" size="23" name="motDePass"  required placeholder="Mot de passe"/>
  				<br />
  			</fieldset>
-     		<input class=" center btn btn-primary" type="submit" value="Valider"  />
+     		<input class=" center btn btn-info" type="submit" value="Valider"  />
    			<br>
 			<a href="/Bomberman-JEE/CreationUser">Créer Compte</a>
    			<br />
@@ -40,7 +40,7 @@
 	</div>
 
 
-	<c:import url="StaticFile/piedPage.jsp"></c:import>
-</body>
 	
+</body>
+<c:import url="StaticFile/piedPage.jsp"></c:import>
 </html>

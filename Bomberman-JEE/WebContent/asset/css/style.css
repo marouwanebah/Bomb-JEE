@@ -3,25 +3,21 @@
 
 
 /* Styles et couleurs -------------------------------------------------------------------------- */
-.requis {
-    color: #c00;
-}
 
-.erreur {
-    color: #900;
-}
-
-.succes {
-    color: #090;
-}
-
-.info {
-    font-style: italic;
-    color: #E8A22B;
-}
  .center {
   margin: auto;
   width: 25%;
-
   padding: 10px;
+}
+
+body {
+  background-image: url("asset/images/wallpaper-Bomberman.jpg");
+
+}
+
+#footer { 
+   position:absolute; 
+   bottom:0;  /* on le colle en bas */ 
+   width:100%; 
+   height:70px;   /* Hauteur du pied de page */ 
 }

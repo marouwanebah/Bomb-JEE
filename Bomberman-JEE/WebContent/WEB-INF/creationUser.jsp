@@ -9,6 +9,7 @@
 
 <!-- CSS -->
 <!-- Bootstrap CSS CDN -->
+ <link type="text/css" rel="stylesheet" href="asset/css/style.css" />
   <link rel="stylesheet" href="asset/css/bootstrap.min.css">
 </head>
 <body>
@@ -24,28 +25,28 @@
 			<div class="form-row">
 			  	<div class="form-group col-md-6">
 			    	<label for="pseudo">Nom d'utilisateur</label>
-			      	<input type="text" class="form-control" id="pseudo" placeholder="nom d'utilisateur">
+			      	<input type="text" class="form-control" name="pseudo" placeholder="nom d'utilisateur">
 			    </div>
 			    <div class="form-group col-md-6">
 			      	<label for="mdp">Mot de passe</label>
-			      	<input type="password" class="form-control" id="mdp" placeholder="mot de passe">
+			      	<input type="password" class="form-control" name="passwd" placeholder="mot de passe">
 			    </div>
 			</div>
 			
 			<div class="form-row">
 			  	<div class="form-group col-md-6">
 			    	<label for="nom">Nom</label>
-			      	<input type="text" class="form-control" id="nom" placeholder="nom">
+			      	<input type="text" class="form-control" name="nom" placeholder="nom">
 			    </div>
 			    <div class="form-group col-md-6">
 			      	<label for="prenom">Prénom</label>
-			      	<input type="text" class="form-control" id="prenom" placeholder="prénom">
+			      	<input type="text" class="form-control" name="prenom" placeholder="prénom">
 			    </div>
 			</div>
 			  
 			<div class="form-group">
 			    <label for="email">Addresse e-mail&nbsp;<i class="fas fa-at"></i></label>
-			    <input type="text" class="form-control" id="email" placeholder="ex : toto@example.com">
+			    <input type="text" class="form-control" name="email" placeholder="ex : votrenom@example.com">
 			</div>
 			
 		
