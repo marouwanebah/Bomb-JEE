@@ -4,59 +4,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Creation Utilisateur</title>
-
-<!-- CSS -->
-<!-- Bootstrap CSS CDN -->
- <link type="text/css" rel="stylesheet" href="asset/css/style.css" />
-  <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+	<title>Creation Utilisateur</title>
+	
+	<!-- CSS -->
+	<!-- Bootstrap CSS CDN -->
+ 	<link type="text/css" rel="stylesheet" href="asset/css/style.css" />
+	<link rel="stylesheet" href="asset/css/bootstrap.min.css">
 </head>
 <body>
 	<c:import url="StaticFile/tetePage.jsp" />
 	
-	<div class="container-fluid bandeauCreationCompte">
+	<c:out value=""></c:out>
+	<div class="center">
 		<br />
-		<h1>Création de votre compte Bomberman</h1>
+		<h1>Création Compte </h1>
 	</div>
-
+	<c:out value="${user._motDePasse }"></c:out>
 	<div class="container formulaireCreationCompte">
-		<form method="post" action="creationCompte">
+		<form method="post">
 			<div class="form-row">
 			  	<div class="form-group col-md-6">
 			    	<label for="pseudo">Nom d'utilisateur</label>
-			      	<input type="text" class="form-control" name="pseudo" placeholder="nom d'utilisateur">
+			      	<input type="text" class="form-control" name="pseudo" placeholder="Nom d'utilisateur" required>
 			    </div>
 			    <div class="form-group col-md-6">
 			      	<label for="mdp">Mot de passe</label>
-			      	<input type="password" class="form-control" name="passwd" placeholder="mot de passe">
+			      	<input type="password" class="form-control" name="motDePasse" placeholder="Mot de passe" required>
 			    </div>
 			</div>
 			
 			<div class="form-row">
 			  	<div class="form-group col-md-6">
 			    	<label for="nom">Nom</label>
-			      	<input type="text" class="form-control" name="nom" placeholder="nom">
+			      	<input type="text" class="form-control" name="nom" placeholder="Nom" required>
 			    </div>
 			    <div class="form-group col-md-6">
 			      	<label for="prenom">Prénom</label>
-			      	<input type="text" class="form-control" name="prenom" placeholder="prénom">
+			      	<input type="text" class="form-control" name="prenom" placeholder="Prénom" required>
 			    </div>
 			</div>
 			  
 			<div class="form-group">
-			    <label for="email">Addresse e-mail&nbsp;<i class="fas fa-at"></i></label>
-			    <input type="text" class="form-control" name="email" placeholder="ex : votrenom@example.com">
+			    <label for="email">Adresse e-mail&nbsp;<i class="fas fa-at"></i></label>
+			    <input type="text" class="form-control" name="email" placeholder="ex : votrenom@example.com" required>
 			</div>
 			
 		
 			
 			<div style="text-align:center;">
-		  		<button type="submit" class="btn btn-primary">Créer mon compte &nbsp; <i class="fas fa-plus"></i></button>
+		  		<button type="submit" class="btn btn-dark">Créer mon compte &nbsp; <i class="fas fa-plus"></i></button>
 		  	</div>
 		</form>
 	</div>
-	
+	<div>
+		
+	</div>
 	<c:import url="StaticFile/piedPage.jsp" />
 
 </body>
