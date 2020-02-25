@@ -57,9 +57,7 @@
 		  	</div>
 		</form>
 	</div>
-	<div>
-		
-	</div>
+
 	<c:import url="StaticFile/piedPage.jsp" />
 
 </body>

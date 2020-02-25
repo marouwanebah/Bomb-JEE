@@ -53,9 +53,11 @@ public class CreationUser extends HttpServlet {
 		request.setAttribute("user", newUser);
 		request.setAttribute("test", message);
 		
-
+		
         
        this.getServletContext().getRequestDispatcher("/WEB-INF/creationUser.jsp").forward(request, response);
+       
+       
 	
 	}
 
