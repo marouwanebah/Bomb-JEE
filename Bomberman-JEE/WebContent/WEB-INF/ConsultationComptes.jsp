@@ -16,14 +16,17 @@
 	<c:import url="StaticFile/tetePage.jsp" />
 	
 	
+	<div class="text-center">
+		<h1>Historique des parties </h1>
+	</div>
 	
-	<div class="container">
-		<div class="row bg-danger text-center font-weight-bold">
-			<div class="col-md"> <h3>Joueur </h3></div> 
-			<div class="col-md"> <h3>Defaite</h3> </div> 
-			<div class="col-md"> <h3>Victoire</h3> </div> 
-			<div class="col-md">  <h3>Total </h3></div>
-			<div class="col-md"> <h3>Score</h3></div> 				
+	<div class="container-fluid">
+		<div class="row  text-center font-weight-bold">
+			<div class="col-md btn btn-outline-danger"> <h3>Joueur </h3></div> 
+			<div class="col-md btn btn-outline-danger"> <h3>Defaite</h3> </div> 
+			<div class="col-md btn btn-outline-danger"> <h3>Victoire</h3> </div> 
+			<div class="col-md btn btn-outline-danger">  <h3>Total </h3></div>
+			<div class="col-md btn btn-outline-danger"> <h3>Score</h3></div> 				
 		</div>
 
 		<c:forEach var="utilisateur" items="${ utilisateurs }">

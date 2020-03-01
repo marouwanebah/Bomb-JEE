@@ -12,21 +12,21 @@
  <link type="text/css" rel="stylesheet" href="asset/css/style.css" />
  <link rel="stylesheet" href="asset/css/bootstrap.min.css">
 </head>
-<body style="background-image: url(asset/images/bomberman.png);   background-repeat: no-repeat;background-attachment: fixed; " >
+<body style="background-image: url(asset/images/bomberman.png);   background-repeat: no-repeat;" >
 	<c:import url="StaticFile/tetePage.jsp"></c:import>
 	<c:if test="${!empty user }">
 		<c:out value=" username = ${user.email } passwords = ${user.motDePasse }"></c:out>
 	</c:if>
 	
-	<div class="container justify-content-center">
+	<div class="container-fluid ">
 		<div class="row">
 			<div class="col-sm justify-content" >
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 				<h1> Bienvenue au jeu <br>
 					   Bomberman
 				</h1>
 			</div>
-			<div class="col-sm  auto-flex">
+			<div class="col-sm  ">
 				<form method="post"   >
 
 		            <input type="text" id="nomClient" name="nomClient" value="" size="20" maxlength="20" required placeholder="Nom d'utilisateur ou email"/>
@@ -39,7 +39,7 @@
 		   			<br />
 				</form>
 				
-				<br><br><br><br> <img alt="bomberman" src="asset/images/Capture.png" width="600" height="300">
+				<br><br><br><br> <img alt="bomberman" class="img-fluid" src="asset/images/Capture.png" >
 			</div>
 		</div>
 	</div>
