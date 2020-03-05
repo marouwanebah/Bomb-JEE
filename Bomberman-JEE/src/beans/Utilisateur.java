@@ -6,6 +6,21 @@ public class Utilisateur {
 	private String _nom;
 	private String _prenom;
 	private String _email;
+	private String _dateCreation;
+	
+	public Utilisateur() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Utilisateur(String _Username, String _motDePasse, String _nom, String _prenom, String _email, String _dateCreation) {
+		super();
+		this._Username = _Username;
+		this._motDePasse = _motDePasse;
+		this._nom = _nom;
+		this._prenom = _prenom;
+		this._email = _email;
+		this._dateCreation = _dateCreation;
+	}
 	public Utilisateur(String _Username, String _motDePasse, String _nom, String _prenom, String _email) {
 		super();
 		this._Username = _Username;
@@ -44,6 +59,13 @@ public class Utilisateur {
 	public void set_email(String _email) {
 		this._email = _email;
 	}
+	public String get_dateCreation() {
+		return _dateCreation;
+	}
+	public void set_dateCreation(String _dateCreation) {
+		this._dateCreation = _dateCreation;
+	}
+	
 	
 	
 	
