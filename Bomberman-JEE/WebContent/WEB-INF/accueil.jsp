@@ -35,7 +35,7 @@
 		 	
 		     		<input class="text-center" type="submit" value="Valider"  />
 		     		
-					<a href="/Bomberman-JEE/CreationUser">Créer Compte</a>
+					<a href="/Bomberman-JEE/User?action=Enregistrer&mode=ajout">Créer Compte</a>
 		   			<br />
 				</form>
 				

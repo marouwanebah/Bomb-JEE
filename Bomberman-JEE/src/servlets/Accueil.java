@@ -12,7 +12,7 @@ import beans.UtilisateurSimple;
 /**
  * Servlet implementation class Accueil
  */
-@WebServlet("/Accueil")
+//@WebServlet("/Accueil")
 public class Accueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

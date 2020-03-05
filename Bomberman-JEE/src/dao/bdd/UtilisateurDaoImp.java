@@ -2,7 +2,9 @@ package dao.bdd;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import beans.Utilisateur;
@@ -21,6 +23,10 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 	
 	private static final String SQL_INSERT = "INSERT INTO utilisateur (pseudo, password, nom, prenom, email,  date_creation)"
 			+ " VALUES(?,?,?,?,?,NOW() )";
+	private static final String SQL_UPDATE = "UPDATE utilisateur SET password=?, nom=?, prenom=?, email=? WHERE pseudo=?";
+	private static final String SQL_DELETE = "DELETE FROM utilisateur WHERE pseudo=?";
+	private static final String SQL_SELECT = "SELECT * FROM utilisateur";
+	private static final String SQL_SELECT_ONLY = "SELECT pseudo, password, nom, prenom,  email FROM utilisateur WHERE pseudo=?";
 	
 	 
 	
@@ -30,7 +36,7 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 	}
 
 	@Override
-	public void ajouter(Utilisateur utilisateur) {
+	public void ajouterUtilisateur(Utilisateur utilisateur) {
 			Connection connexion = null;
 	        PreparedStatement preparedStatement = null;
 
@@ -45,16 +51,107 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 	            preparedStatement.setString(5, utilisateur.get_email());
 	            
 	            preparedStatement.executeUpdate();
+	            preparedStatement.close();
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
 		
 	}
 
+
+
 	@Override
-	public List<Utilisateur> lister() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Utilisateur> listerUtilisateurs() {
+		List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement
+					(SQL_SELECT);
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next()) {
+				Utilisateur utilisateur = new Utilisateur();
+				utilisateur.set_Username(rs.getString("pseudo"));
+				utilisateur.set_nom(rs.getString("nom"));
+				utilisateur.set_prenom(rs.getString("prenom"));
+				utilisateur.set_email(rs.getString("email"));
+				utilisateur.set_dateCreation(rs.getString("date_creation"));
+				utilisateurs.add(utilisateur);
+			}
+			preparedStatement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return utilisateurs;
+	}
+
+	@Override
+	public Utilisateur getUtilisateur(String pseudo) {
+		Utilisateur utilisateur = null;
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement
+					(SQL_SELECT_ONLY);
+			preparedStatement.setString(1, pseudo);
+			ResultSet rs = preparedStatement.executeQuery();
+			if(rs.next()) {
+				utilisateur = new Utilisateur();
+				utilisateur.set_Username(rs.getString("pseudo"));
+				utilisateur.set_motDePasse(rs.getString("password"));
+				utilisateur.set_nom(rs.getString("nom"));
+				utilisateur.set_prenom(rs.getString("prenom"));
+				utilisateur.set_email(rs.getString("email"));
+			}
+			preparedStatement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (utilisateur==null) throw new RuntimeException("Utilisateur"+ pseudo + "introuvable");
+		return utilisateur;
+	}
+
+	@Override
+	public void modifierUtilisateur(Utilisateur utilisateur) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connexion = daoFactory.getConnection();
+            preparedStatement = connexion.prepareStatement(SQL_UPDATE);
+            preparedStatement.setString(1, utilisateur.get_motDePasse());
+            preparedStatement.setString(2, utilisateur.get_nom());
+            preparedStatement.setString(3, utilisateur.get_prenom());
+            preparedStatement.setString(4, utilisateur.get_email());
+            preparedStatement.setString(5, utilisateur.get_Username());            
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+	}
+
+	@Override
+	public void supprimerUtilisateur(String pseudo) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement
+					(SQL_DELETE);
+			preparedStatement.setString(1, pseudo);
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }
