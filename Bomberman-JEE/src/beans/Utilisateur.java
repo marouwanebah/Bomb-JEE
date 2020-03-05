@@ -9,6 +9,7 @@ public class Utilisateur {
 	private String _dateCreation;
 	private int _nbreVictoires;
 	private int _nbreDefaites;
+	private int _score;
 	
 	public Utilisateur() {
 		super();
@@ -78,6 +79,12 @@ public class Utilisateur {
 	}
 	public void set_nbreDefaites(int _nbreDefaites) {
 		this._nbreDefaites = _nbreDefaites;
+	}
+	public int get_score() {
+		return _score;
+	}
+	public void set_score(int _score) {
+		this._score = _score;
 	}
 	
 	
