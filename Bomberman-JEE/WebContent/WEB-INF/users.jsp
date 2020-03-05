@@ -32,7 +32,7 @@
 		<table class="table">
 		 <thead class="thead-gray">
 			<tr>
-				<th>PSEUDO</th><th>NOM</th><th>PRENOM</th><th>EMAIL</th><th>DATE CREATION</th><th colspan="2">ACTION</th>
+				<th>PSEUDO</th><th>NOM</th><th>PRENOM</th><th>EMAIL</th><th>DATE CREATION</th><th>VICTOIRES</th><th>DEFAITES</th><th colspan="2">ACTION</th>
 			</tr>
 		</thead>
 			<c:forEach items="${utilisateurs}" var="user">
@@ -42,6 +42,8 @@
 					<td>${user._prenom}</td>
 					<td>${user._email}</td>
 					<td>${user._dateCreation}</td>
+					<td align="right">${user._nbreVictoires}</td>
+					<td align="right">${user._nbreDefaites}</td>
 					<td><a href="javascript:confirmer('User?action=delete&pseudo=${user._Username }')">Supprimer</a></td>
 					<td><a href="User?action=edit&mode=edit&pseudo=${user._Username }">Editer</a></td>
 				</tr>

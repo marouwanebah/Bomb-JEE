@@ -7,6 +7,8 @@ public class Utilisateur {
 	private String _prenom;
 	private String _email;
 	private String _dateCreation;
+	private int _nbreVictoires;
+	private int _nbreDefaites;
 	
 	public Utilisateur() {
 		super();
@@ -64,6 +66,18 @@ public class Utilisateur {
 	}
 	public void set_dateCreation(String _dateCreation) {
 		this._dateCreation = _dateCreation;
+	}
+	public int get_nbreVictoires() {
+		return _nbreVictoires;
+	}
+	public void set_nbreVictoires(int _nbreVictoires) {
+		this._nbreVictoires = _nbreVictoires;
+	}
+	public int get_nbreDefaites() {
+		return _nbreDefaites;
+	}
+	public void set_nbreDefaites(int _nbreDefaites) {
+		this._nbreDefaites = _nbreDefaites;
 	}
 	
 	
