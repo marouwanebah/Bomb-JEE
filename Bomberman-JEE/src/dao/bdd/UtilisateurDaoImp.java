@@ -23,6 +23,10 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 	
 	private static final String SQL_INSERT = "INSERT INTO utilisateur (pseudo, password, nom, prenom, email,  date_creation)"
 			+ " VALUES(?,?,?,?,?,NOW() )";
+	private static final String SQL_UPDATE = "UPDATE utilisateur SET password=?, nom=?, prenom=?, email=? WHERE pseudo=?";
+	private static final String SQL_DELETE = "DELETE FROM utilisateur WHERE pseudo=?";
+	private static final String SQL_SELECT = "SELECT * FROM utilisateur";
+	private static final String SQL_SELECT_ONLY = "SELECT pseudo, password, nom, prenom,  email FROM utilisateur WHERE pseudo=?";
 	
 	 
 	
@@ -32,7 +36,7 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 	}
 
 	@Override
-	public void ajouter(Utilisateur utilisateur) {
+	public void ajouterUtilisateur(Utilisateur utilisateur) {
 			Connection connexion = null;
 	        PreparedStatement preparedStatement = null;
 
@@ -47,11 +51,14 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 	            preparedStatement.setString(5, utilisateur.get_email());
 	            
 	            preparedStatement.executeUpdate();
+	            preparedStatement.close();
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
 		
 	}
+
+
 
 	@Override
 	public List<Utilisateur> listerUtilisateurs() {

@@ -1,7 +1,7 @@
 <br>
 <br>
 <!-- Footer -->
-<footer id="footer" class="page-footer font-small blue bg-info">
+<footer id="footer" class="page-footer bg-success">
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
