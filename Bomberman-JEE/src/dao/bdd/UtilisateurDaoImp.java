@@ -77,6 +77,8 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 				utilisateur.set_prenom(rs.getString("prenom"));
 				utilisateur.set_email(rs.getString("email"));
 				utilisateur.set_dateCreation(rs.getString("date_creation"));
+				utilisateur.set_nbreVictoires(rs.getInt("nbre_victoires"));
+				utilisateur.set_nbreDefaites(rs.getInt("nbre_defaites"));
 				utilisateurs.add(utilisateur);
 			}
 			preparedStatement.close();

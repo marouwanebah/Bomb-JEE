@@ -5,20 +5,12 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Liste des utilisateurs</title>
+	<title>Liste des joueurs</title>
 	
 	<!-- CSS -->
 	<!-- Bootstrap CSS CDN -->
  	<link type="text/css" rel="stylesheet" href="asset/css/style.css" />
 	<link rel="stylesheet" href="asset/css/bootstrap.min.css">
-	 <script type="text/javascript">
- 	function confirmer(url){
- 		var rep=confirm("Etes vous sûr de vouloir supprimer?");
- 		if(rep==true){
- 			document.location=url;
- 		}
- 	}
- </script>
 </head>
 <body>
 	<c:import url="StaticFile/tetePage.jsp" />
@@ -26,13 +18,13 @@
 	<c:out value=""></c:out>
 	<div class="center">
 		<br />
-		<h1>Utilisateurs </h1>
+		<h2>Joueurs de la manche N° ${numeroPartie} </h2>
 	</div>
 	<div>
 		<table class="table">
 		 <thead class="thead-gray">
 			<tr>
-				<th>PSEUDO</th><th>NOM</th><th>PRENOM</th><th>EMAIL</th><th>DATE CREATION</th><th>VICTOIRES</th><th>DEFAITES</th><th colspan="2">ACTION</th>
+				<th>PSEUDO</th><th>NOM</th><th>PRENOM</th><th>EMAIL</th><th>SCORE</th>
 			</tr>
 		</thead>
 			<c:forEach items="${utilisateurs}" var="user">
@@ -41,11 +33,7 @@
 					<td>${user._nom}</td>
 					<td>${user._prenom}</td>
 					<td>${user._email}</td>
-					<td>${user._dateCreation}</td>
-					<td align="right">${user._nbreVictoires}</td>
-					<td align="right">${user._nbreDefaites}</td>
-					<td><a href="javascript:confirmer('User?action=delete&pseudo=${user._Username }')">Supprimer</a></td>
-					<td><a href="User?action=edit&mode=edit&pseudo=${user._Username }">Editer</a></td>
+					<td>${user._score}</td>
 				</tr>
 			</c:forEach>
 		</table>

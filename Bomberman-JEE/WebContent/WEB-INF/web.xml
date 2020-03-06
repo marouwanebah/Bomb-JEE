@@ -18,4 +18,13 @@
   	<servlet-name>user</servlet-name>
   	<url-pattern>/User</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>partie</servlet-name>
+  	<servlet-class>servlets.PartieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>partie</servlet-name>
+  	<url-pattern>/Partie</url-pattern>
+  </servlet-mapping>
 </web-app>

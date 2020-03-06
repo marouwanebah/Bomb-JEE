@@ -37,5 +37,8 @@ public class DaoFactory {
     public UtilisateurDAO getUtilisateurDao() {
         return new UtilisateurDaoImp(this); 
     }
+    public PartieDAO getPartieDao() {
+        return new PartieDaoImp(this); 
+    }
     
 }
