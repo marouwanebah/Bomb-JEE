@@ -12,7 +12,7 @@
 	  <div class="row">
 	    <div class="col-sm">  <a class="text-light" href="Accueil">Accueil</a>   </div>
 	    <div class="col-sm">  <a class="text-light" href="User?action=users">Utilisateur</a>  </div>
-	    <div class="col-sm">  <a class="text-light" href="Score">Score</a>   </div>
+	    <div class="col-sm">  <a class="text-light" href="Partie?action=parties">Historique</a>   </div>
 	  </div>
 	</div>
 
