@@ -18,55 +18,41 @@
 	<c:out value=""></c:out>
 	<div class="center">
 		<br />
-		<c:if test="${mode=='ajout' }">
-			<h1>Création Compte </h1>
-		</c:if>
-		<c:if test="${mode=='edit' }">
-			<h1>Modification Compte </h1>
-		</c:if>
+		<h1>Création Compte </h1>
 	</div>
 	<div class="container formulaireCreationCompte">
-		<form action="User" method="post">
+		<form method="post">
 			<div class="form-row">
-				<input type="hidden" value="${mode}" name="mode">
-			  		<c:if test="${mode=='ajout' }">
-					  	<div class="form-group col-md-6">
-					    	<label for="pseudo">Nom d'utilisateur</label>
-					      	<input type="text" class="form-control" name="pseudo" placeholder="Nom d'utilisateur" value="${user._Username}" required>
-					    </div>
-					</c:if>
-					<c:if test="${mode=='edit' }">
-					  	<div class="form-group col-md-6">
-					    	<label for="pseudo">Nom d'utilisateur</label>
-					      	<b>${user._Username}</b><input type="hidden" class="form-control" name="pseudo" placeholder="Nom d'utilisateur" value="${user._Username}" required>
-					    </div>
-					</c:if>
+			  	<div class="form-group col-md-6">
+			    	<label for="pseudo">Nom d'utilisateur</label>
+			      	<input type="text" class="form-control" name="pseudo" placeholder="Nom d'utilisateur" required>
+			    </div>
 			    <div class="form-group col-md-6">
 			      	<label for="mdp">Mot de passe</label>
-			      	<input type="password" class="form-control" name="motDePasse" placeholder="Mot de passe" value="${user._motDePasse}" required>
+			      	<input type="password" class="form-control" name="motDePasse" placeholder="Mot de passe" required>
 			    </div>
 			</div>
 			
 			<div class="form-row">
 			  	<div class="form-group col-md-6">
 			    	<label for="nom">Nom</label>
-			      	<input type="text" class="form-control" name="nom" placeholder="Nom" value="${user._nom}" required>
+			      	<input type="text" class="form-control" name="nom" placeholder="Nom" required>
 			    </div>
 			    <div class="form-group col-md-6">
 			      	<label for="prenom">Prénom</label>
-			      	<input type="text" class="form-control" name="prenom" placeholder="Prénom" value="${user._prenom}" required>
+			      	<input type="text" class="form-control" name="prenom" placeholder="Prénom" required>
 			    </div>
 			</div>
 			  
 			<div class="form-group">
 			    <label for="email">Adresse e-mail&nbsp;<i class="fas fa-at"></i></label>
-			    <input type="text" class="form-control" name="email" placeholder="ex : votrenom@example.com" value="${user._email}" required>
+			    <input type="text" class="form-control" name="email" placeholder="ex : votrenom@example.com" required>
 			</div>
 			
 		
 			
 			<div style="text-align:center;">
-		  		<input type="submit" name="action" value="Enregistrer" class="btn btn-dark">
+		  		<button type="submit" class="btn btn-dark">Créer mon compte &nbsp; <i class="fas fa-plus"></i></button>
 		  	</div>
 		</form>
 	</div>
