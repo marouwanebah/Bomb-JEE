@@ -23,10 +23,6 @@ public class CreationUser extends HttpServlet {
         this.userDoa = daoFactory.getUtilisateurDao();
     }
     
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		this.getServletContext().getRequestDispatcher("/WEB-INF/creationUser.jsp").forward( request, response );
@@ -38,7 +34,6 @@ public class CreationUser extends HttpServlet {
 		//doGet(request, response);
 		
 		String message = "Ok"; 
-		
 		String username = request.getParameter("pseudo"); 
 		String password = request.getParameter("motDePasse"); 
 		String nom = request.getParameter("nom"); 

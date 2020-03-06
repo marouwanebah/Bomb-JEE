@@ -20,7 +20,7 @@
 		<br />
 		<h1>Création Compte </h1>
 	</div>
-	<c:out value="${user._motDePasse }"></c:out>
+	<c:out value="${user }"></c:out>
 	<div class="container formulaireCreationCompte">
 		<form method="post">
 			<div class="form-row">

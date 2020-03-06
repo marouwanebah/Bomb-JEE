@@ -10,8 +10,8 @@
 	<div class="navbar navbar-dark bg-dark">
 	  <div class="row">
 	    <div class="col-sm">  <a class="text-light" href="Accueil">Accueil</a>   </div>
-	    <div class="col-sm">  <a class="text-light" href="CreationUser">Utilisateur</a>  </div>
-	    <div class="col-sm">  <a class="text-light" href="ConsultationCompte">Score</a>   </div>
+	    <div class="col-sm">  <a class="text-light" href="CreationUser">sign in</a>  </div>
+	    <div class="col-sm">  <a class="text-light" href="ConsultationCompte">Historique</a>   </div>
 	  </div>
 	</div>
 	<br>

@@ -28,7 +28,6 @@
 			<div class="col-md btn btn-outline-danger">  <h3>Total </h3></div>
 			<div class="col-md btn btn-outline-danger"> <h3>Score</h3></div> 				
 		</div>
-
 		<c:forEach var="utilisateur" items="${ utilisateurs }">
 			<div class="row text-center  "> 
 				<div class="col-md text-center "  ><c:out  value="${ utilisateur._prenom }" /> <c:out value="${ utilisateur._nom }" /> </div> 
@@ -40,8 +39,6 @@
 		</c:forEach>
   
 	</div>
-	
-	
 	
 	<c:import url="StaticFile/piedPage.jsp" />
 </body>
