@@ -4,6 +4,7 @@ import java.util.List;
 
 import beans.Utilisateur;
 
+
 public interface UtilisateurDAO {
     public void ajouterUtilisateur( Utilisateur utilisateur );
     public List<Utilisateur> listerUtilisateurs();
