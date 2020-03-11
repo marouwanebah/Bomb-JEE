@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import beans.EtatPartie;
+import beans.LevelPartie;
 import beans.Partie;
 import beans.Utilisateur;
 
@@ -14,7 +16,8 @@ public class PartieDaoImp implements PartieDAO {
 	private DaoFactory daoFactory;
 	private static final String SQL_SELECT = "SELECT * FROM td_partie";
 	private static final String SQL_SELECT_USERS_PARTIE = "SELECT t1.pseudo, nom, prenom, email, score FROM utilisateur t1, td_mapping_user_partie t2 WHERE t1.pseudo=t2.pseudo AND t2.numero_partie=? ORDER BY score DESC";
-
+	private static final String SQL_SELECT_ETAT_PARTIE = "SELECT code_etat_partie, libelle_etat_partie FROM tc_etat_partie where code_etat_partie=?";
+	private static final String SQL_SELECT_LEVEL_PARTIE = "SELECT code_level_partie, libelle_level_partie FROM tc_level_partie where code_level_partie=?";
 	public PartieDaoImp(DaoFactory daoFactory) {
 		super();
 		this.daoFactory = daoFactory;
@@ -35,10 +38,10 @@ public class PartieDaoImp implements PartieDAO {
 				partie.set_numeroPartie(rs.getInt("numero_partie"));
 				partie.set_dateCreationPartie(rs.getString("date_creation_partie"));
 				partie.set_gagnantPartie(rs.getString("gagnant_partie"));
-				partie.set_codeEtatPartie(rs.getString("code_etat_partie"));
+				partie.set_etatPartie(getLibelleEtatPartie((rs.getString("code_etat_partie"))));
 				partie.set_dateDebutPartie(rs.getString("date_debut_partie"));
 				partie.set_dateFinPartie(rs.getString("date_fin_partie"));
-				partie.set_codeLevelPartie(rs.getString("code_level_partie"));
+				partie.set_levelPartie(getLibelleLevelPartie((rs.getString("code_level_partie"))));
 				parties.add(partie);
 			}
 			preparedStatement.close();
@@ -75,6 +78,54 @@ public class PartieDaoImp implements PartieDAO {
 			e.printStackTrace();
 		}
 		return utilisateurs;
+	}
+
+	@Override
+	public EtatPartie getLibelleEtatPartie(String codeEtatPartie) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        EtatPartie etatPartie = null;
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement
+					(SQL_SELECT_ETAT_PARTIE);
+			preparedStatement.setString(1, codeEtatPartie);
+			ResultSet rs = preparedStatement.executeQuery();
+			if(rs.next()) {
+				etatPartie = new EtatPartie();
+				etatPartie.set_codeEtatPartie(rs.getString("code_etat_partie"));
+				etatPartie.set_libelleEtatPartie(rs.getString("libelle_etat_partie"));
+			}
+			preparedStatement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return etatPartie;
+	}
+
+	@Override
+	public LevelPartie getLibelleLevelPartie(String codeLevelPartie) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        LevelPartie levelPartie = null;
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement
+					(SQL_SELECT_LEVEL_PARTIE);
+			preparedStatement.setString(1, codeLevelPartie);
+			ResultSet rs = preparedStatement.executeQuery();
+			if(rs.next()) {
+				levelPartie = new LevelPartie();
+				levelPartie.set_codeLevelPartie(rs.getString("code_level_partie"));
+				levelPartie.set_libelleLevelPartie(rs.getString("libelle_level_partie"));
+			}
+			preparedStatement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return levelPartie;
 	}
 
 }

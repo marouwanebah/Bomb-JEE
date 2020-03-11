@@ -18,7 +18,7 @@
 	<c:out value=""></c:out>
 	<div class="center">
 		<br />
-		<h1>Historique des parties </h1>
+		<h2>Historique des parties </h2>
 	</div>
 	<div>
 		<table class="table">
@@ -32,8 +32,8 @@
 					<td>${partie._numeroPartie}</td>
 					<td>${partie._dateCreationPartie}</td>
 					<td>${partie._gagnantPartie}</td>
-					<td>${partie._codeEtatPartie}</td>
-					<td>${partie._codeLevelPartie}</td>
+					<td>${partie._etatPartie._libelleEtatPartie}</td>
+					<td>${partie._levelPartie._libelleLevelPartie}</td>
 					<td>${partie._dateDebutPartie}</td>
 					<td>${partie._dateFinPartie}</td>
 					<td><a href="Partie?action=joueurs&numeroPartie=${partie._numeroPartie }">Joueurs</a></td>
