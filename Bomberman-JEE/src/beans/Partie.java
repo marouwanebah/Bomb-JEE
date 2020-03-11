@@ -4,10 +4,10 @@ public class Partie {
 	private int _numeroPartie;
 	private String _dateCreationPartie;
 	private String _gagnantPartie;
-	private String _codeEtatPartie;
+	private EtatPartie _etatPartie;
 	private String _dateDebutPartie;
 	private String _dateFinPartie;
-	private String _codeLevelPartie;
+	private LevelPartie _levelPartie;
 	public Partie() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -30,11 +30,12 @@ public class Partie {
 	public void set_gagnantPartie(String _gagnantPartie) {
 		this._gagnantPartie = _gagnantPartie;
 	}
-	public String get_codeEtatPartie() {
-		return _codeEtatPartie;
+	
+	public EtatPartie get_etatPartie() {
+		return _etatPartie;
 	}
-	public void set_codeEtatPartie(String _codeEtatPartie) {
-		this._codeEtatPartie = _codeEtatPartie;
+	public void set_etatPartie(EtatPartie _etatPartie) {
+		this._etatPartie = _etatPartie;
 	}
 	public String get_dateDebutPartie() {
 		return _dateDebutPartie;
@@ -48,11 +49,13 @@ public class Partie {
 	public void set_dateFinPartie(String _dateFinParite) {
 		this._dateFinPartie = _dateFinParite;
 	}
-	public String get_codeLevelPartie() {
-		return _codeLevelPartie;
+	public LevelPartie get_levelPartie() {
+		return _levelPartie;
 	}
-	public void set_codeLevelPartie(String _codeLevelPartie) {
-		this._codeLevelPartie = _codeLevelPartie;
+	public void set_levelPartie(LevelPartie _levelPartie) {
+		this._levelPartie = _levelPartie;
 	}
+	
+	
 	
 }

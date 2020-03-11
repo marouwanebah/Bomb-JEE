@@ -18,7 +18,7 @@
 	<c:out value=""></c:out>
 	<div class="center">
 		<br />
-		<h2>Joueurs de la manche N° ${numeroPartie} </h2>
+		<h3>Joueurs de la manche N° ${numeroPartie} </h3>
 	</div>
 	<div>
 		<table class="table">
