@@ -8,6 +8,7 @@ public class Partie {
 	private String _dateDebutPartie;
 	private String _dateFinPartie;
 	private LevelPartie _levelPartie;
+	private ModePartie _modePartie;
 	public Partie() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -54,6 +55,12 @@ public class Partie {
 	}
 	public void set_levelPartie(LevelPartie _levelPartie) {
 		this._levelPartie = _levelPartie;
+	}
+	public ModePartie get_modePartie() {
+		return _modePartie;
+	}
+	public void set_modePartie(ModePartie _modePartie) {
+		this._modePartie = _modePartie;
 	}
 	
 	

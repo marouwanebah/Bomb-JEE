@@ -24,7 +24,7 @@
 		<table class="table">
 		 <thead class="thead-gray">
 			<tr>
-				<th>MANCHE N°</th><th>DATE CREATION</th><th>GAGNANT</th><th>ETAT</th><th>LEVEL</th><th>DATE DEBUT</th><th>DATE FIN</th><th>ACTION</th>
+				<th>MANCHE N°</th><th>DATE CREATION</th><th>GAGNANT</th><th>ETAT</th><th>LEVEL</th><th>MODE</th><th>DATE DEBUT</th><th>DATE FIN</th><th>ACTION</th>
 			</tr>
 		</thead>
 			<c:forEach items="${parties}" var="partie">
@@ -34,6 +34,7 @@
 					<td>${partie._gagnantPartie}</td>
 					<td>${partie._etatPartie._libelleEtatPartie}</td>
 					<td>${partie._levelPartie._libelleLevelPartie}</td>
+					<td>${partie._modePartie._libelleModePartie}</td>
 					<td>${partie._dateDebutPartie}</td>
 					<td>${partie._dateFinPartie}</td>
 					<td><a href="Partie?action=joueurs&numeroPartie=${partie._numeroPartie }">Joueurs</a></td>
