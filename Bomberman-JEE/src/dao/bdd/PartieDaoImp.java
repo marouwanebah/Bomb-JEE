@@ -9,6 +9,7 @@ import java.util.List;
 
 import beans.EtatPartie;
 import beans.LevelPartie;
+import beans.ModePartie;
 import beans.Partie;
 import beans.Utilisateur;
 
@@ -18,6 +19,7 @@ public class PartieDaoImp implements PartieDAO {
 	private static final String SQL_SELECT_USERS_PARTIE = "SELECT t1.pseudo, nom, prenom, email, score FROM utilisateur t1, td_mapping_user_partie t2 WHERE t1.pseudo=t2.pseudo AND t2.numero_partie=? ORDER BY score DESC";
 	private static final String SQL_SELECT_ETAT_PARTIE = "SELECT code_etat_partie, libelle_etat_partie FROM tc_etat_partie where code_etat_partie=?";
 	private static final String SQL_SELECT_LEVEL_PARTIE = "SELECT code_level_partie, libelle_level_partie FROM tc_level_partie where code_level_partie=?";
+	private static final String SQL_SELECT_MODE_PARTIE = "SELECT code_mode_partie, libelle_mode_partie FROM tc_mode_partie where code_mode_partie=?";
 	public PartieDaoImp(DaoFactory daoFactory) {
 		super();
 		this.daoFactory = daoFactory;
@@ -42,6 +44,7 @@ public class PartieDaoImp implements PartieDAO {
 				partie.set_dateDebutPartie(rs.getString("date_debut_partie"));
 				partie.set_dateFinPartie(rs.getString("date_fin_partie"));
 				partie.set_levelPartie(getLibelleLevelPartie((rs.getString("code_level_partie"))));
+				partie.set_modePartie(getLibelleModePartie((rs.getString("code_mode_partie"))));
 				parties.add(partie);
 			}
 			preparedStatement.close();
@@ -126,6 +129,30 @@ public class PartieDaoImp implements PartieDAO {
 			e.printStackTrace();
 		}
 		return levelPartie;
+	}
+
+	@Override
+	public ModePartie getLibelleModePartie(String codeModePartie) {
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        ModePartie modePartie = null;
+		try {
+			connexion = daoFactory.getConnection();
+			preparedStatement = connexion.prepareStatement
+					(SQL_SELECT_MODE_PARTIE);
+			preparedStatement.setString(1, codeModePartie);
+			ResultSet rs = preparedStatement.executeQuery();
+			if(rs.next()) {
+				modePartie = new ModePartie();
+				modePartie.set_codeModePartie(rs.getString("code_mode_partie"));
+				modePartie.set_libelleModePartie(rs.getString("libelle_mode_partie"));
+			}
+			preparedStatement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return modePartie;
 	}
 
 }
