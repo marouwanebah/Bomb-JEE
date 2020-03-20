@@ -14,9 +14,7 @@
 </head>
 <body style="background-image: url(asset/images/bomberman.png);   background-repeat: no-repeat;background-attachment: fixed; " >
 	<c:import url="StaticFile/tetePage.jsp"></c:import>
-	<c:if test="${!empty user }">
-		<c:out value=" username = ${user.email } passwords = ${user.motDePasse }"></c:out>
-	</c:if>
+	
 	
 	<div class="container justify-content-center">
 		<div class="row">
@@ -27,11 +25,18 @@
 				</h1>
 			</div>
 			<div class="col-sm  auto-flex">
-				<form method="post"   >
-
-		            <input type="text" id="nomClient" name="nomClient" value="" size="20" maxlength="20" required placeholder="Nom d'utilisateur ou email"/>
+				<form  method="post"   >
+				<c:if test="${!empty sessionScope.sessionUtilisateur}">
+                    <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
+                    <p class="succes">Vous êtes connecté(e) avec l'adresse : ${sessionScope.sessionUtilisateur._email}</p>
+                </c:if>
+                <c:if test="${empty sessionScope.sessionUtilisateur}">
+                    <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
+                    <p class="error">Veuillez saisir votre nom d'utilisateur et votre mot de passe pour vous connecter</p>
+                </c:if>
+		            <input type="text" id="nomClient" name="nomClient" value="${user._Username}" size="20" maxlength="20" required placeholder="Nom d'utilisateur ou email"/>
 	
-		       		<input  type="password" id="motDePass" size="18" name="motDePass"  required placeholder="Mot de passe"/>
+		       		<input  type="password" id="motDePass" size="18" name="motDePass" value="${user._motDePasse}"  required placeholder="Mot de passe"/>
 		 	
 		     		<input class="text-center" type="submit" value="Valider"  />
 		     		

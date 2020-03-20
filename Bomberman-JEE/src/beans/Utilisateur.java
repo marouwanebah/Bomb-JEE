@@ -10,12 +10,13 @@ public class Utilisateur {
 	private int _nbreVictoires;
 	private int _nbreDefaites;
 	private int _score;
+	private String _role;
 	
 	public Utilisateur() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Utilisateur(String _Username, String _motDePasse, String _nom, String _prenom, String _email, String _dateCreation) {
+	public Utilisateur(String _Username, String _motDePasse, String _nom, String _prenom, String _email, String _dateCreation, String _role) {
 		super();
 		this._Username = _Username;
 		this._motDePasse = _motDePasse;
@@ -23,6 +24,7 @@ public class Utilisateur {
 		this._prenom = _prenom;
 		this._email = _email;
 		this._dateCreation = _dateCreation;
+		this._role = _role;
 	}
 	public Utilisateur(String _Username, String _motDePasse, String _nom, String _prenom, String _email) {
 		super();
@@ -85,6 +87,12 @@ public class Utilisateur {
 	}
 	public void set_score(int _score) {
 		this._score = _score;
+	}
+	public String get_role() {
+		return _role;
+	}
+	public void set_role(String _role) {
+		this._role = _role;
 	}
 	
 	

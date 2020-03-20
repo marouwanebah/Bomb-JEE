@@ -20,6 +20,15 @@
   </servlet-mapping>
   
   <servlet>
+  	<servlet-name>users</servlet-name>
+  	<servlet-class>servlets.Users</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>users</servlet-name>
+  	<url-pattern>/Users</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
   	<servlet-name>partie</servlet-name>
   	<servlet-class>servlets.PartieServlet</servlet-class>
   </servlet>
@@ -27,4 +36,23 @@
   	<servlet-name>partie</servlet-name>
   	<url-pattern>/Partie</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>deconnexion</servlet-name>
+  	<servlet-class>servlets.Deconnexion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>deconnexion</servlet-name>
+  	<url-pattern>/Deconnexion</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+  	<filter-name>restrictionFilter</filter-name>
+  	<filter-class>filters.RestrictionFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>restrictionFilter</filter-name>
+  	<url-pattern>/Partie</url-pattern>
+  	<url-pattern>/Users</url-pattern>
+  </filter-mapping>
+  
 </web-app>

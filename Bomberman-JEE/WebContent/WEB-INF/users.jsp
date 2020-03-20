@@ -44,8 +44,10 @@
 					<td>${user._dateCreation}</td>
 					<td align="right">${user._nbreVictoires}</td>
 					<td align="right">${user._nbreDefaites}</td>
-					<td><a href="javascript:confirmer('User?action=delete&pseudo=${user._Username }')">Supprimer</a></td>
-					<td><a href="User?action=edit&mode=edit&pseudo=${user._Username }">Editer</a></td>
+					<c:if test="${sessionScope.sessionUtilisateur._role=='admin'}">
+						<td><a href="javascript:confirmer('User?action=delete&pseudo=${user._Username }')">Supprimer</a></td>
+						<td><a href="User?action=edit&mode=edit&pseudo=${user._Username }">Editer</a></td>
+					</c:if>
 				</tr>
 			</c:forEach>
 		</table>

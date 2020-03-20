@@ -21,12 +21,12 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 	private static final String CHAMP_DATE_INSCRIPTION = "date_creation";
 	
 	
-	private static final String SQL_INSERT = "INSERT INTO utilisateur (pseudo, password, nom, prenom, email,  date_creation)"
-			+ " VALUES(?,?,?,?,?,NOW() )";
+	private static final String SQL_INSERT = "INSERT INTO utilisateur (pseudo, password, nom, prenom, email,  date_creation, nbre_victoires, nbre_defaites, role)"
+			+ " VALUES(?,?,?,?,?,NOW(),0,0,'utilisateur' )";
 	private static final String SQL_UPDATE = "UPDATE utilisateur SET password=?, nom=?, prenom=?, email=? WHERE pseudo=?";
 	private static final String SQL_DELETE = "DELETE FROM utilisateur WHERE pseudo=?";
 	private static final String SQL_SELECT = "SELECT * FROM utilisateur";
-	private static final String SQL_SELECT_ONLY = "SELECT pseudo, password, nom, prenom,  email FROM utilisateur WHERE pseudo=?";
+	private static final String SQL_SELECT_ONLY = "SELECT pseudo, password, nom, prenom,  email, role FROM utilisateur WHERE pseudo=?";
 	
 	 
 	
@@ -107,6 +107,7 @@ public class UtilisateurDaoImp implements UtilisateurDAO {
 				utilisateur.set_nom(rs.getString("nom"));
 				utilisateur.set_prenom(rs.getString("prenom"));
 				utilisateur.set_email(rs.getString("email"));
+				utilisateur.set_role(rs.getString("role"));
 			}
 			preparedStatement.close();
 		} catch (SQLException e) {
