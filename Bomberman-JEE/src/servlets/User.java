@@ -81,7 +81,7 @@ public class User extends HttpServlet {
 				mode="edit";
 				request.setAttribute("user", utilisateur);
 				request.setAttribute("mode", mode);
-				this.getServletContext().getRequestDispatcher("/WEB-INF/creationUser.jsp?").forward(request, response);
+				this.getServletContext().getRequestDispatcher("/WEB-INF/creationUser.jsp").forward(request, response);
 				break;
 
 			default:
