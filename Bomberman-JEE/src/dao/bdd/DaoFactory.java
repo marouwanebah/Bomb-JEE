@@ -24,7 +24,7 @@ public class DaoFactory {
         }
 
         DaoFactory instance = new DaoFactory(
-                "jdbc:mysql://localhost:3306/javaee", "root", "Dalabacity93");
+                "jdbc:mysql://localhost:3306/bomberman?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "sory", "123456");
         return instance;
     }
 
